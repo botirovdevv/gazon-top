@@ -9,7 +9,10 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Ilova foydalanuvchiga eng yaqin sport maydonlarini ko'rsatishi va joriy shaharni aniqlashi uchun joylashuv ma'lumotidan foydalanadi."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +22,12 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.mustafodev.maydonbron",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "output": "static",
@@ -33,16 +41,29 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#0D0D0D",
           "dark": {
-            "backgroundColor": "#000000"
+            "backgroundColor": "#0D0D0D"
           }
+        }
+      ],
+      "expo-image",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Ilova joriy joylashuvingizni aniqlashi uchun ruxsat bering."
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "114adb5b-84ea-4eef-b81b-315bc76cfbbf"
+      }
     }
   }
 }
