@@ -127,46 +127,45 @@ export default function HomeScreen() {
 
       {/* ── FIXED TOP ── */}
       <View style={styles.fixedTop}>
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.locLabel}>{t('common.location')}</Text>
-          <View style={styles.locRow}>
-            {loading ? (
-              <ActivityIndicator size="small" color={Colors.textPrimary} style={{ marginRight: 5 }} />
-            ) : (
-              <Text style={styles.locName}>{locationName}</Text>
-            )}
-            <Text style={styles.locArrow}> ▾</Text>
-          </View>
-        </View>
-        
-        <View style={styles.headerRight}>
-          {/* Ob-havo chipi endi dinamik */}
-          <View style={styles.weatherChip}>
-            <Text style={styles.weatherEmoji}>{weatherEmoji}</Text>
-            <Text style={styles.weatherTemp}>{temperature}</Text>
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.locLabel}>{t('common.location')}</Text>
+            <View style={styles.locRow}>
+              {loading ? (
+                <ActivityIndicator size="small" color={Colors.textPrimary} style={{ marginRight: 5 }} />
+              ) : (
+                <Text style={styles.locName}>{locationName}</Text>
+              )}
+              <Text style={styles.locArrow}> ▾</Text>
+            </View>
           </View>
           
-          <TouchableOpacity style={styles.iconBtn} onPress={() => router.push('/login' as any)}>
-            <BellIcon color={Colors.textPrimary} size={20} />
+          <View style={styles.headerRight}>
+            <View style={styles.weatherChip}>
+              <Text style={styles.weatherEmoji}>{weatherEmoji}</Text>
+              <Text style={styles.weatherTemp}>{temperature}</Text>
+            </View>
+            
+            <TouchableOpacity style={styles.iconBtn} onPress={() => router.push('/login' as any)}>
+              <BellIcon color={Colors.textPrimary} size={20} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.searchRow}>
+          <View style={styles.searchBar}>
+            <SearchIcon color={Colors.textMuted} size={18} />
+            <TextInput
+              style={styles.searchInput}
+              placeholder={t('common.search')}
+              placeholderTextColor={Colors.textMuted}
+            />
+          </View>
+          <TouchableOpacity style={styles.filterBtn}>
+            <FilterIcon color={Colors.textPrimary} size={20} />
           </TouchableOpacity>
         </View>
       </View>
-
-      <View style={styles.searchRow}>
-        <View style={styles.searchBar}>
-          <SearchIcon color={Colors.textMuted} size={18} />
-          <TextInput
-            style={styles.searchInput}
-            placeholder={t('common.search')}
-            placeholderTextColor={Colors.textMuted}
-          />
-        </View>
-        <TouchableOpacity style={styles.filterBtn}>
-          <FilterIcon color={Colors.textPrimary} size={20} />
-        </TouchableOpacity>
-      </View>
-    </View>
 
       {/* ── SCROLL CONTENT ── */}
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
@@ -273,19 +272,16 @@ function FeaturedCard({ pitch, width }: { pitch: Pitch; width: number }) {
   const { t } = useTranslation();
   return (
     <TouchableOpacity style={[styles.featCard, { width }]} activeOpacity={0.92}>
-      {/* Rasm */}
       <Image
         source={{ uri: pitch.imageUrl }}
         style={StyleSheet.absoluteFillObject}
         resizeMode="cover"
       />
-      {/* Gradient overlay */}
       <LinearGradient
         colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.75)']}
         style={StyleSheet.absoluteFillObject}
       />
 
-      {/* Badges */}
       {pitch.instantBook && (
         <View style={styles.instantBadge}>
           <Text style={styles.instantText}>{t('common.instantBook')}</Text>
@@ -296,7 +292,6 @@ function FeaturedCard({ pitch, width }: { pitch: Pitch; width: number }) {
         <Text style={styles.ratingText}> {pitch.rating}</Text>
       </View>
 
-      {/* Bottom */}
       <View style={styles.featBottom}>
         <View style={{ flex: 1 }}>
           <Text style={styles.featName}>{pitch.name}</Text>
@@ -376,6 +371,7 @@ function LiveCard({ game, playersLabel, timeLabel, liveLabel }: {
   );
 }
 
+// ── Sport Card ─────────────────────────────────────────
 function SportCard({ sport, newLabel, soonLabel, venuesLabel }: {
   sport: { id: string; emoji: string; name: string; count: number; available: boolean; soon?: boolean; isNew?: boolean };
   newLabel: string; soonLabel: string; venuesLabel: string;
