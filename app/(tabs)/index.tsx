@@ -123,7 +123,7 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <SafeAreaView style={styles.safe}>
+ <SafeAreaView style={styles.safe}>
 
       {/* ── FIXED TOP ── */}
       <View style={styles.fixedTop}>
@@ -271,7 +271,11 @@ export default function HomeScreen() {
 function FeaturedCard({ pitch, width }: { pitch: Pitch; width: number }) {
   const { t } = useTranslation();
   return (
-    <TouchableOpacity style={[styles.featCard, { width }]} activeOpacity={0.92}>
+    <TouchableOpacity 
+      style={[styles.featCard, { width }]} 
+      activeOpacity={0.92}
+      onPress={() => router.push({ pathname: '/pitch/[id]', params: { id: pitch.id } } as any)}
+    >
       <Image
         source={{ uri: pitch.imageUrl }}
         style={StyleSheet.absoluteFillObject}

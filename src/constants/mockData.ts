@@ -3,9 +3,9 @@ import { Pitch } from '../types';
 export const PITCHES: Pitch[] = [
   {
     id: '1',
-    name: '5-son maktab',
+    name: 'Urban Arena Rooftop',
     distance: '1.2 km',
-    format: '5v5',
+    format: '7v7',
     surface: 'AstroTurf',
     type: 'outdoor',
     pricePerHour: 120,
@@ -15,11 +15,14 @@ export const PITCHES: Pitch[] = [
     instantBook: true,
     image: '⚽',
     imageUrl: 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&q=80',
-    address: 'Lenin, Urganch',
+    address: 'Chilonzor, Toshkent',
+    size: '40m x 20m',
+    lights: 'Pro LED',
+    amenities: ['Dush', 'Bepul avtoturargoh', 'Kafe', 'WiFi'],
   },
   {
     id: '2',
-    name: 'Xorazm fc',
+    name: 'City Sports Complex',
     distance: '0.8 km',
     format: '5v5',
     surface: 'Grass',
@@ -31,7 +34,10 @@ export const PITCHES: Pitch[] = [
     instantBook: false,
     image: '🏟️',
     imageUrl: 'https://images.unsplash.com/photo-1551958219-acbc595d6943?w=800&q=80',
-    address: 'Marifatchilar, Yangiariq',
+    address: 'Yunusobod, Toshkent',
+    size: '30m x 15m',
+    lights: 'Standard',
+    amenities: ['Dush', 'Kafe', 'WiFi'],
   },
   {
     id: '3',
@@ -48,6 +54,9 @@ export const PITCHES: Pitch[] = [
     image: '🥅',
     imageUrl: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800&q=80',
     address: 'Mirzo Ulugbek, Toshkent',
+    size: '25m x 15m',
+    lights: 'Standard',
+    amenities: ['Dush', 'Bepul avtoturargoh'],
   },
   {
     id: '4',
@@ -64,7 +73,16 @@ export const PITCHES: Pitch[] = [
     image: '🎾',
     imageUrl: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=800&q=80',
     address: 'Shayxontohur, Toshkent',
+    size: '23m x 11m',
+    lights: 'Pro LED',
+    amenities: ['Dush', 'Kafe', 'WiFi', 'Bepul avtoturargoh'],
   },
 ];
 
 export const FILTERS = ['All Venues', '5-a-side', '7-a-side', 'Indoor', 'Tennis'];
+
+export const REVIEWS = [
+  { id: '1', name: 'Murod Karimov', rating: 5, comment: 'Ajoyib maydon, hammasi mukammal!', date: '2 kun oldin', avatar: 'MK' },
+  { id: '2', name: 'Jasur Toshmatov', rating: 4, comment: 'Yaxshi joy, narxi ham qulay.', date: '5 kun oldin', avatar: 'JT' },
+  { id: '3', name: 'Sardor Yusupov', rating: 5, comment: 'Har haftasida kelamiz, juda yoqadi!', date: '1 hafta oldin', avatar: 'SY' },
+];

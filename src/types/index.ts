@@ -13,6 +13,16 @@ export type Pitch = {
   image: string;
   imageUrl: string;
   address: string;
+  size?: string;
+  lights?: string;
+  amenities?: string[];
 };
 
 export type FilterType = 'All Venues' | '5-a-side' | '7-a-side' | 'Indoor' | 'Tennis';
+
+export type TimeSlot = {
+  id: string;
+  time: string;
+  period: 'AM' | 'PM';
+  available: boolean;
+};  
